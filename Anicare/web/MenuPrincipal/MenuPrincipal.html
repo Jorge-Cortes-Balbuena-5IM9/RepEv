@@ -1,0 +1,214 @@
+<html>
+    <head>
+        <title>Anicare</title>
+        <style type="text/css">
+            #popup {
+                visibility: hidden;
+                opacity: 0;
+                margin-top: -300px;
+             }
+             #popup:target {
+                visibility:visible;
+                opacity: 1;
+                background-color: rgba(0,0,0,0.8);
+                position: fixed;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                margin:0;
+                z-index: 999;
+                transition:all 1s;
+             }
+             #popupi {
+                visibility: hidden;
+                opacity: 0;
+                margin-top: -300px;
+             }
+             #popupi:target {
+                visibility:visible;
+                opacity: 1;
+                background-color: rgba(0,0,0,0.8);
+                position: fixed;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                margin:0;
+                z-index: 999;
+                transition:all 1s;
+             }
+             .popup-contenedor {
+                position: relative;
+                margin:2% auto;
+                padding:30px 50px;
+                background: linear-gradient(white,#ccccff);
+                /*background-color: #fafafa;*/
+                color:#333;
+                border-radius: 3px;
+                width: 40%;
+             }
+             input.input-text{
+
+                 font-family: "Roboto", Arial;
+                font-size: 16px;
+                color: rgb(0, 120, 150);
+                width: 100%;
+                outline: none;
+                padding: 15px;
+                background: none;
+                border: none;
+                border-bottom: 2px solid #BBDEFB;
+             }
+             a.popup-cerrar {
+                position: absolute;
+                top:3px;
+                right:3px;
+                background-color: crimson;
+                padding:7px 10px;
+                font-size: 20px;
+                text-decoration: none;
+                line-height: 1;
+                color:#fff;
+             }
+             a.popup-link {
+                text-align: center;
+                display: block;
+                margin: 30px 0;
+            }
+            .popup-contenedor input[type="submit"] {
+                background: rgb(0, 120, 150);
+                border-radius: 1px;
+                border: 2px solid #f2f2f2;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-family: "Roboto", Arial;
+                font-size: 16px;
+                padding: 15px;
+                width: 100%;
+                transition: all 0.3s ease;
+              }
+              .popup-contenedor input[type="submit"]:hover {
+                background: #1976D2;
+              }
+              .aviso {
+                    color: rgb(143, 186, 202);
+                }
+                a{
+                    color: rgb(80, 119, 136);
+                    text-decoration:none;
+                    line-height:normal;
+                    font-weight:bold;
+                    -webkit-transition:all 500ms ease;
+                    -o-transition:all 500ms ease;
+                    transition:all 500ms ease;
+            }
+
+            a:hover {
+                    color: orange;
+}-
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <link rel="stylesheet" href="dist/sweetalert.css" type="text/css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel = "stylesheet" type = "text/css" href = "EstilosPrincipal.css">
+    </head>
+    <body>
+        <header class="headerdin">
+            <div class="wrapper">
+                <div class="logo">Anicare</div>
+            </div>
+        </header>
+            <br><br>
+            <section class="contenido wrapper">
+                <div class="desarrollo">
+                    <div class="titulo">
+                    <svg viewBox="0 0 800 600">
+                        <text text-anchor="middle"
+                              x="50%"
+                              y="35%"
+                              class="text--line" style="color: #BBDEFB"
+                              >
+                          Reporte de
+                        </text>
+                        <text text-anchor="middle"
+                              x="50%"
+                              y="68%"
+                              class="text--line2"
+                              >
+                          Eventos
+                        </text>
+
+
+                      <g class="g-ants">
+                        <use xlink:href="#s-text"
+                          class="text-copy"></use>     
+                        <use xlink:href="#s-text"
+                          class="text-copy"></use>     
+                        <use xlink:href="#s-text"
+                          class="text-copy"></use>     
+                        <use xlink:href="#s-text"
+                          class="text-copy"></use>     
+                        <use xlink:href="#s-text"
+                          class="text-copy"></use>     
+                      </g>
+
+
+                    </svg>
+                    </div>
+                
+                    <div class="textoB">
+                        <br>
+                        <h1>¡Bienvenido!</h1><br>
+                        <p>Para elaborar un reporte debes de haber inciado sesión</p>
+                        <br><br>
+            <a href="#popupi">Iniciar sesión</a>
+                     </div>
+                </div>
+                
+            </section>
+            <div id="popup">
+                    <div class="popup-contenedor">
+                        <a class="popup-cerrar" href="#">X</a>
+                        <form onsubmit="return validarContra()" action="../Registro/registro.jsp" method="POST">
+                            <center>
+                                <img src="user_icon1.jpg" width="128" height="128" alt="user_icon1"/>
+
+                                <br><bR>
+
+                                <INPUT type = "text" name = "nombre" size = "20"  class="input-text" onkeypress = "validaLetras()"
+                                       pattern="^([a-z]+[0-9]{0,2}){5,12}$" title="Cinco a doce caracteres, letras minúsculas, m&aacute;ximo dos números al final. " required maxlength="12" placeholder="Nombre de usuario"><br><br><br>
+                               <INPUT type = "password" name = "contrasena" id="contrasena" size = "20" maxlength="12" placeholder="Contrase&ntilde;a"
+                                   onkeypress = "validaLetras()" pattern="[A-Za-z0-9!?-]{8,12}" title="Ocho a doce caracteres, letras may&uacute;sculas, min&uacute;sculas, n&uacute;meros y los caracteres !?" class="input-text" required><br><br><br>
+                            <INPUT type = "password" name = "contrasena1" id="contrasena1" size = "20" maxlength="12" placeholder="Confirmar contrase&ntilde;a"
+                                   onkeypress = "validaLetras()" pattern="[A-Za-z0-9!?-]{8,12}" title="Ocho a doce caracteres, letras may&uacute;sculas, min&uacute;sculas, n&uacute;meros y los caracteres !?" class="input-text" required><br><br><br>
+                            <INPUT type = "email" name = "email" id = "mail" size = "20" placeholder="E-mail" class="input-text"><br><br><br>
+                            <input type="submit" value="Registrarse"></center>
+                        </form>
+                      </div>
+            </div>
+            <div id="popupi">
+                    <div class="popup-contenedor">
+                        <a class="popup-cerrar" href="#">X</a>
+                        <form action="../Registro/inicio.jsp"  method="POST">
+                            <center>
+                                <img src="user_icon1.jpg" width="128" height="128" alt="user_icon1"/>
+
+                                <br><bR>
+
+                                <INPUT type = "text" name = "nombrei" size = "20"  class="input-text"
+                                       pattern="^([a-z]+[0-9]{0,2}){5,12}$" placeholder="Nombre de usuario"><br><br><br>
+                                <INPUT type = "password" name = "contrasenai" id="contrasenai" size = "20" maxlength="12" placeholder="Contrase&ntilde;a"
+                                  pattern="[A-Za-z0-9!?-]{8,12}" class="input-text"><br><br><br>
+                                <input type="submit" value="Iniciar Sesión"></center><br><br>
+                            <h4 class="aviso">¿Aun no te has registrado?  <a href="#popup">Crea una cuenta.</a></h4>
+                        </form>
+                        
+                      </div>
+            </div>
+            
+    </body>
+</html>
